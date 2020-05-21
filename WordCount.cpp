@@ -1,31 +1,31 @@
 #include <stdio.h>
 #include<string.h> 
-void CharCount()//Í³¼Æ×Ö·ûÊı
+void CharCount()//ç»Ÿè®¡å­—ç¬¦æ•°
 {
 	FILE *fp;
 	int charCount = 0;
-	char ch;//¶ÁÈ¡ÎÄ¼ş·µ»ØµÄ×Ö½Ú
+	char ch;//è¯»å–æ–‡ä»¶è¿”å›çš„å­—èŠ‚
 	if ((fp = fopen("test.txt", "r")) == NULL)
 	{
-		printf("ÎÄ¼ş´ò¿ªÊ§°Ü.");
+		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥.");
 	}
 	ch = fgetc(fp);
-	while (ch != c)
+	while (ch !=EOF )
 	{
 		charCount++;
 		ch = fgetc(fp);
 	}
-	printf("×Ö·ûÊıÎª£º%d¸ö.\n", charCount);
+	printf("å­—ç¬¦æ•°ä¸ºï¼š%dä¸ª.\n", charCount);
 	fclose(fp);
 }
-void WordCount()//Í³¼Æµ¥´ÊÊı
+void WordCount()//ç»Ÿè®¡å•è¯æ•°
 {
 	FILE *fp;
 	int wordCount = 0, flag = 0;
-	char ch;//¶ÁÈ¡ÎÄ¼ş·µ»ØµÄ×Ö½Ú
+	char ch;//è¯»å–æ–‡ä»¶è¿”å›çš„å­—èŠ‚
 	if ((fp = fopen("test.txt", "r")) == NULL)
 	{
-		printf("ÎÄ¼ş´ò¿ªÊ§°Ü.");
+		printf("æ–‡ä»¶æ‰“å¼€å¤±è´¥.");
 	}
 	ch = fgetc(fp);
 	while (ch != EOF)
@@ -45,16 +45,16 @@ void WordCount()//Í³¼Æµ¥´ÊÊı
 			ch = fgetc(fp);
 		}
 	}
-	printf("µ¥´ÊÊıÎª£º%d¸ö.\n", wordCount);
+	printf("å•è¯æ•°ä¸ºï¼š%dä¸ª.\n", wordCount);
 	fclose(fp);
 }
 int main(int argc, char *argv[])
 {
-	if ((strcmp(argv[1], "-w") == 0) && (strcmp(argv[2], "test.txt") == 0))//Í³¼Æµ¥´ÊÊı
+	if ((strcmp(argv[1], "-w") == 0) && (strcmp(argv[2], "test.txt") == 0))//ç»Ÿè®¡å•è¯æ•°
 	{
 		WordCount();
 	}
-	if ((strcmp(argv[1], "-c") == 0) && (strcmp(argv[2], "test.txt") == 0))//Í³¼Æ×Ö·ûÊı
+	if ((strcmp(argv[1], "-c") == 0) && (strcmp(argv[2], "test.txt") == 0))//ç»Ÿè®¡å­—ç¬¦æ•°
 	{
 		CharCount();
 	}
